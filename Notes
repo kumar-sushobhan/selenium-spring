@@ -1,0 +1,16 @@
+Singleton - Multiple threads are sharing same webdriver instance so parallel not possible.
+            For the entire application runtime, it will create only ONE object.
+Prototype - Each and every instance (Page Objects, Page Components etc), they all have their own threads.
+            Thread 1, Thread 2, Thread 3 are creating their own webdriver instance (makes sense)
+            But, within the thread, each page objects creating their own webdriver instance, that's the issue.
+            Issue --- multiple browser will open and execution will get stuck.
+            As a part of business workflow, multiple page objects are involved, so each and every page objects are launching their own webdriver instance.
+
+            Solution --
+            Thread will be creating their own webdriver instance, and it will be shared with multiple page objects.
+            Same webdriver instance will be given to all components.
+
+            Issue --
+            If the browser gets hanged, or gets closed for some reason, or we quit the browser, it won't recreate the driver.
+
+Custom Scope - If the browser is quit, we will remove from Map Entry, we will be recreating one new object and put in the map.
