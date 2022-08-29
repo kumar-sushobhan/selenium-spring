@@ -8,9 +8,9 @@ Feature: User login to automation test store
     Then I am on the personalized page
 
     Examples:
-      | username                 | password     |
-      | sushobhanworld@gmail.com | amigoscode@1 |
-      | abcd@gmail.com           | qwerty       |
+      | username                 | password |
+      | sushobhanworld@gmail.com | London@1 |
+      | abcd@gmail.com           | qwerty   |
 
   @firstrepo
   Scenario: Open the first repository
